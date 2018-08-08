@@ -736,12 +736,12 @@ td.pointer {
 }
 
 .message_list .recipient_row {
-    border-bottom: 1px solid hsl(0, 0%, 88%);
+    border-bottom: 1px solid hsl(195, 100%, 66%);
     margin-bottom: 10px;
 }
 
 .floating_recipient .recipient_row {
-    border-top: 1px solid hsl(0, 0%, 88%);
+    border-top: 1px solid hsl(195, 100%, 66%);
 }
 
 .stream_label {
@@ -753,8 +753,8 @@ td.pointer {
     border-top-color: hsla(0, 0%, 0%, 0.0);
     border-right-color: hsla(0, 0%, 0%, 0.0);
     border-bottom-color: hsla(0, 0%, 0%, 0.0);
-    background-color: hsl(0, 0%, 88%);
-    border-left-color: hsl(0, 0%, 88%);
+    background-color: hsl(195, 100%, 66%);
+    border-left-color: hsl(195, 100%, 66%);
     border-width: 0px;
     position: relative;
     text-decoration: none;
@@ -1022,14 +1022,14 @@ td.pointer {
 }
 
 .message_header_private_message .message_label_clickable {
-    background-color: hsl(0, 0%, 27%);
+    background-color: hsl(230, 100%, 16%);
     display: inline-block;
     padding: 3px 6px 2px 6px;
     font-weight: normal;
     font-size: 14px;
     height: 17px;
     line-height: 17px;
-    border-left-color: hsl(0, 0%, 27%);
+    border-left-color: hsl(230, 100%, 16%);
 }
 
 /* Base color backgrounds for messageboxes,
@@ -1042,11 +1042,11 @@ td.pointer {
 .private-message .messagebox,
 .message_header_private_message .message-header-contents {
     background-color: hsla(192, 19%, 75%, 0.2);
-    box-shadow: inset 1px 1px 0px hsl(0, 0%, 88%);
+    box-shadow: inset 1px 1px 0px hsl(195, 100%, 66%);
 }
 
 .message-header-contents {
-    border-right: 1px solid hsl(0, 0%, 88%);
+    border-right: 1px solid hsl(195, 100%, 66%);
 }
 
 .mention .messagebox {
@@ -1590,7 +1590,7 @@ blockquote p {
 }
 
 #tab_list li.inactive {
-    background-color: hsl(0, 0%, 88%);
+    background-color: hsl(195, 100%, 66%);
     border-width: 0px;
     margin-right: -4px;
     font-size: 14px;
@@ -1626,7 +1626,7 @@ blockquote p {
 }
 
 #tab_list li.active {
-    background-color: hsl(0, 0%, 88%);
+    background-color: hsl(195, 100%, 66%);
     max-width: 150px;
     white-space: nowrap;
     overflow: hidden;
@@ -1641,15 +1641,15 @@ blockquote p {
     border-top-color: hsla(0, 0%, 0%, 0.0);
     border-right-color: hsla(0, 0%, 0%, 0.0);
     border-bottom-color: hsla(0, 0%, 0%, 0.0);
-    background-color: hsl(0, 0%, 27%);
-    border-left-color: hsl(0, 0%, 27%);
+    background-color: hsl(230, 100%, 16%);
+    border-left-color: hsl(230, 100%, 16%);
     color: hsl(0, 0%, 100%);
     border-width: 0px;
 }
 
 #tab_list .root {
-    border-color: hsl(0, 0%, 88%);
-    background-color: hsl(0, 0%, 88%);
+    border-color: hsl(195, 100%, 66%);
+    background-color: hsl(195, 100%, 66%);
     margin: 0px;
 }
 
@@ -1858,8 +1858,8 @@ nav a .no-style {
     display: flex;
     width: 100%;
     height: 40px;
-    border-left: 1px solid hsl(0, 0%, 88%);
-    border-right: 1px solid hsl(0, 0%, 88%);
+    border-left: 1px solid hsl(195, 100%, 66%);
+    border-right: 1px solid hsl(195, 100%, 66%);
 
     .navbar-search {
         margin-top: 0px;
@@ -1964,8 +1964,8 @@ nav a .no-style {
 #searchbox_legacy {
     width: 100%;
     height: 40px;
-    border-left: 1px solid hsl(0, 0%, 88%);
-    border-right: 1px solid hsl(0, 0%, 88%);
+    border-left: 1px solid hsl(195, 100%, 66%);
+    border-right: 1px solid hsl(195, 100%, 66%);
 
     .navbar-search {
         margin-top: 0px;
@@ -2074,7 +2074,7 @@ div.floating_recipient {
 }
 
 .message-header-contents {
-    background: hsl(0, 0%, 88%);
+    background: hsl(195, 100%, 66%);
 }
 
 .recipient_row.sticky {
@@ -2310,7 +2310,7 @@ li .message_inline_image img {
 }
 
 .table-striped thead th {
-    background-color: hsl(0, 0%, 27%);
+    background-color: hsl(230, 100%, 16%);
     color: hsl(0, 0%, 100%);
 }
 
@@ -2590,7 +2590,7 @@ div.topic_edit_spinner .loading_indicator_spinner {
     display: inline-block;
     vertical-align: middle;
     width: 33%;
-    border-top: 1px solid hsl(0, 0%, 88%);
+    border-top: 1px solid hsl(195, 100%, 66%);
     border-bottom: 1px solid #fff;
     margin: 0px 5px 0px 5px;
 }
@@ -2621,7 +2621,7 @@ div.topic_edit_spinner .loading_indicator_spinner {
     vertical-align: middle;
     width: 50%;
     height: 0px;
-    border-top: 1px solid hsl(0, 0%, 88%);
+    border-top: 1px solid hsl(195, 100%, 66%);
     border-bottom: 1px solid #fff;
 }
 
