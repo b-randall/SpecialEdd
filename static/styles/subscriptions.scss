@@ -646,7 +646,7 @@ form#add_new_subscription {
 }
 
 .stream-row .checked svg {
-    fill: hsl(170, 47%, 54%);
+    fill: hsl(350, 100%, 45%);
 }
 
 .stream-row .icon {
@@ -847,7 +847,7 @@ form#add_new_subscription {
 
 .editable-section[contenteditable=true] {
     display: inline-block;
-    color: hsl(170, 47%, 54%);
+    color: hsl(350, 100%, 45%);
 }
 
 .editable-section[contenteditable=true]:focus {
