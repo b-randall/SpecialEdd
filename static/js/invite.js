@@ -68,7 +68,21 @@ exports.launch = function () {
     invitee_emails.focus().autosize();
 
     $("#submit-invitation").on("click", function () {
-        var invite_as = $('#invite_as').val();
+		//get invite as admin checkbox
+        var invite_as = document.getElementById("admin");
+		
+		
+		/*
+			
+		if (invite_as.checked == true)
+		{
+			invite_as = 'admin';
+		}
+		else (invite_as.checked == false)
+		{
+			invite_as = 'normal';
+		}
+		*/
         var data = {
             invitee_emails: $("#invitee_emails").val(),
             invite_as_admin: invite_as === 'admin',
