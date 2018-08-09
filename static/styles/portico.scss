@@ -129,7 +129,7 @@ body {
     box-shadow: 0px -20px 50px rgba(0, 0, 0, 0.04);
     overflow: auto;
 
-    color: hsl(0, 0%, 27%);
+    color: hsl(230, 100%, 16%);
 }
 
 .help .sidebar {
@@ -302,7 +302,7 @@ body {
     vertical-align: top;
     padding: 3px 6.5px 3px 7.5px;
     margin-right: 5px;
-    background-color: hsl(170, 47%, 54%);
+    background-color: hsl(350, 100%, 45%);
     color: white;
     border-radius: 100%;
     font-size: 0.9em;
@@ -383,7 +383,7 @@ li div.codehilite {
     font-weight: 400;
     line-height: 1.2;
 
-    color: hsl(0, 0%, 27%);
+    color: hsl(230, 100%, 16%);
 
     border: 1px solid hsl(0, 0%, 86%);
     border-radius: 4px;
@@ -1348,7 +1348,7 @@ input.new-organization-button {
 }
 
 .footer-navigation li:hover a {
-    color: hsl(0, 0%, 27%);
+    color: hsl(230, 100%, 16%);
     text-decoration: none;
 }
 

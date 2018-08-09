@@ -180,7 +180,7 @@ html {
 }
 
 .header {
-    color: hsl(0, 0%, 27%);
+    color: hsl(350, 100%, 40%);
 }
 
 .header {
@@ -192,11 +192,11 @@ html {
 
 .header .top-links a,
 .header .header-main .logo span {
-    color: hsl(0, 0%, 27%);
+    color: hsl(350, 100%, 45%);
 }
 
 .header .header-main .logo .brand-logo circle {
-    fill: hsl(0, 0%, 27%) !important;
+    fill:  hsl(350, 100%, 45%) !important;
 }
 
 .header .header-main .logo .brand-logo path {
@@ -375,7 +375,7 @@ html {
 .new-style .input-box input[type=email]:focus:invalid,
 .new-style .input-box input[type=password]:focus:invalid {
     box-shadow: none;
-    color: hsl(0, 0%, 27%);
+    color: hsl(230, 100%, 16%);
 }
 
 .new-style .input-box input[type=text]:focus,
@@ -397,7 +397,7 @@ html {
 
     font-size: 1rem;
     font-weight: 600;
-    color: hsl(0, 0%, 27%);
+    color: hsl(230, 100%, 16%);
 }
 
 .new-style .input-box p.text-error {
@@ -484,17 +484,17 @@ html {
 
 .login-page-container input[type=submit]:hover {
     border-color: hsl(0, 0%, 53%);
-    color: hsl(0, 0%, 27%);
+    color: hsl(230, 100%, 16%);
 }
 
 .login-page-container input[type=submit].btn-admin {
-    border-color: hsl(170, 41%, 52%);
-    color: hsl(170, 41%, 52%);
+    border-color: hsl(350, 100%, 45%);
+    color: hsl(350, 100%, 45%);
 }
 
 .login-page-container input[type=submit].btn-admin:hover {
-    color: hsl(156, 62%, 61%);
-    border-color: hsl(156, 62%, 61%);
+    color: hsl(350, 100%, 45%);
+    border-color: hsl(350, 100%, 45%);
 }
 
 .split-view .org-header {

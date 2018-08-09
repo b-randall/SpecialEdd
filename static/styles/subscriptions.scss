@@ -209,7 +209,7 @@ form#add_new_subscription {
 }
 
 .create_stream_button:hover {
-    color: hsl(0, 0%, 27%);
+    color: hsl(230, 100%, 16%);
 }
 
 #create_stream_description {
@@ -376,7 +376,7 @@ form#add_new_subscription {
     width: 100vw;
     height: 100vh;
     background-color: hsla(0, 0%, 8%, 0.7);
-    color: hsl(0, 0%, 27%);
+    color: hsl(230, 100%, 16%);
 }
 
 .subscriptions-container {
@@ -530,7 +530,7 @@ form#add_new_subscription {
     border-radius: 4px;
     padding: 3px;
     outline: none;
-    color: hsl(0, 0%, 27%);
+    color: hsl(230, 100%, 16%);
     text-align: center;
 }
 
@@ -646,7 +646,7 @@ form#add_new_subscription {
 }
 
 .stream-row .checked svg {
-    fill: hsl(170, 47%, 54%);
+    fill: hsl(350, 100%, 45%);
 }
 
 .stream-row .icon {
@@ -847,7 +847,7 @@ form#add_new_subscription {
 
 .editable-section[contenteditable=true] {
     display: inline-block;
-    color: hsl(170, 47%, 54%);
+    color: hsl(350, 100%, 45%);
 }
 
 .editable-section[contenteditable=true]:focus {
@@ -879,7 +879,7 @@ form#add_new_subscription {
 }
 
 #subscription_overlay .editable:hover {
-    color: hsl(0, 0%, 27%);
+    color: hsl(230, 100%, 16%);
 }
 
 #subscription_overlay .checkmark {
