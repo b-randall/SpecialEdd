@@ -69,20 +69,17 @@ exports.launch = function () {
 
     $("#submit-invitation").on("click", function () {
 		//get invite as admin checkbox
-        var invite_as = document.getElementById("admin");
-		
-		
-		/*
+		var invite_as = $('#admin').val();
 			
-		if (invite_as.checked == true)
+		if (invite_as == true)
 		{
 			invite_as = 'admin';
 		}
-		else (invite_as.checked == false)
+		else (invite_as == false)
 		{
 			invite_as = 'normal';
 		}
-		*/
+		
         var data = {
             invitee_emails: $("#invitee_emails").val(),
             invite_as_admin: invite_as === 'admin',
