@@ -72,6 +72,15 @@
     top: 5px;
 }
 
+.sidebar-user-status-indicator {
+	display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    float: left;
+    position: absolute;
+}
+
 .user_active .user-status-indicator,
 .group-pm-status-indicator {
     background-color: hsl(106, 74%, 44%);
