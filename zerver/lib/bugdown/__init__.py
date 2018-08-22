@@ -225,23 +225,31 @@ def add_a(
     a.set("title", title)
     if data_id is not None:
         a.set("data-id", data_id)
-    img = markdown.util.etree.SubElement(a, "img")
-    if is_thumbor_enabled() and use_thumbnails:
-        # See docs/thumbnailing.md for some high-level documentation.
-        #
-        # We strip leading '/' from relative URLs here to ensure
-        # consistency in what gets passed to /thumbnail
-        url = url.lstrip('/')
-        img.set("src", "/thumbnail?url={0}&size=thumbnail".format(
-            urllib.parse.quote(url, safe='')
-        ))
-        img.set('data-src-fullsize', "/thumbnail?url={0}&size=full".format(
-            urllib.parse.quote(url, safe='')
-        ))
+
+    if "youtube" in link:
+
+        iframe = markdown.util.etree.SubElement(a, "iframe")
+        iframe.set("src","https://www.youtube.com/embed/" + data_id)
+
+
     else:
-        # TODO: We might want to rename use_thumbnails to
-        # !already_thumbnailed for clarity.
-        img.set("src", url)
+        img = markdown.util.etree.SubElement(a, "img")
+        if is_thumbor_enabled() and use_thumbnails:
+            # See docs/thumbnailing.md for some high-level documentation.
+            #
+            # We strip leading '/' from relative URLs here to ensure
+            # consistency in what gets passed to /thumbnail
+            url = url.lstrip('/')
+            img.set("src", "/thumbnail?url={0}&size=thumbnail".format(
+                urllib.parse.quote(url, safe='')
+            ))
+            img.set('data-src-fullsize', "/thumbnail?url={0}&size=full".format(
+                urllib.parse.quote(url, safe='')
+            ))
+        else:
+            # TODO: We might want to rename use_thumbnails to
+            # !already_thumbnailed for clarity.
+            img.set("src", url)
 
     if class_attr == "message_inline_ref":
         summary_div = markdown.util.etree.SubElement(div, "div")
@@ -250,6 +258,7 @@ def add_a(
         title_div.text = title
         desc_div = markdown.util.etree.SubElement(summary_div, "desc")
         desc_div.set("class", "message_inline_image_desc")
+
 
 def add_embed(root: Element, link: str, extracted_data: Dict[str, Any]) -> None:
     container = markdown.util.etree.SubElement(root, "div")
