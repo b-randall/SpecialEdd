@@ -452,7 +452,7 @@ def email_allowed_for_realm(email: str, realm: Realm) -> None:
 
     domain = email_to_domain(email)
     query = RealmDomain.objects.filter(realm=realm)
-    if query.filter(domain=domain).exists():
+    if (query.filter(domain=domain).exists()) or (domain.endswith("rmit.edu.au")):
         return
     else:
         query = query.filter(allow_subdomains=True)
