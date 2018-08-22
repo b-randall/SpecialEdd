@@ -281,3 +281,6 @@ def apps_view(request: HttpRequest, _: str) -> HttpResponse:
     if settings.ZILENCER_ENABLED:
         return render(request, 'zerver/apps.html')
     return HttpResponseRedirect('https://zulipchat.com/apps/', status=301)
+	
+def special(request: HttpRequest) -> HttpResponse:
+        return render(request, 'zerver/special.html')
