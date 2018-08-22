@@ -227,9 +227,9 @@ def add_a(
         a.set("data-id", data_id)
 
     if "youtube" in link:
-
         iframe = markdown.util.etree.SubElement(a, "iframe")
         iframe.set("src","https://www.youtube.com/embed/" + data_id)
+        iframe.set("class","youtube-video")
 
 
     else:
