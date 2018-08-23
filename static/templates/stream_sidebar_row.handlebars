@@ -1,5 +1,5 @@
 {{! Stream sidebar rows }}
-
+<ul class="nav nav-list streams_popover" data-stream-id="{{ stream.stream_id }}" data-name="{{ stream.name }}">
 <li class="narrow-filter{{#if not_in_home_view}} out_of_home_view{{/if}}"
   data-stream-id="{{id}}" data-stream-name="{{name}}">
     <div class="subscription_block selectable_sidebar_block">
@@ -10,9 +10,50 @@
         </span>
 
         <a href="{{uri}}" class="stream-name">{{name}}</a>
+        <ul class="nav nav-list streams_popover" data-stream-id="{{id}}" data-name="{{name}}">
+        <li>
+            <a class="toggle_home">
+                {{#if not_in_home_view}}
+                    <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                    {{#tr this}}Mute{{/tr}}
+                {{else}}
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    {{#tr this}}Unmute{{/tr}}
+                {{/if}}
+            </a>
+        </li>
+    </ul>
 
         <div class="count"><div class="value"></div></div>
+
     </div>
-    <span class="arrow stream-sidebar-arrow"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+    <span class="arrow stream-sidebar-arrow"><i class="fa fa-chevron-down" aria-hidden="true"></i>
+
+      <a class="open_stream_settings">
+
+
+      </a>
+      <!--i class="fa fa-eye-slash" aria-hidden="true"></i-->
+      <!--i>
+      {{#tr this}}{{/tr}}
+      <a class="toggle_home">
+      {{#if stream.in_home_view}}
+          <i class="fa fa-eye-slash" aria-hidden="true"></i>
+          {{#tr this}}{{/tr}}
+      {{else}}
+          <i class="fa fa-eye" aria-hidden="true"></i>
+          {{#tr this}}{{/tr}}
+      {{/if}}</a></i--></span>
+    <!--span class="toggle_home">
+            {{#if stream.in_home_view}}
+                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                {{#tr this}}Mute the stream <b>stream.name</b>{{/tr}}
+            {{else}}
+                <i class="fa fa-eye" aria-hidden="true"></i>
+                {{#tr this}}Unmute the stream <b>stream.name</b>{{/tr}}
+            {{/if}}
+        </span>
+      <!i class="fa fa-eye-slash" aria-hidden="true"></i-->
 
 </li>
+</ul>
