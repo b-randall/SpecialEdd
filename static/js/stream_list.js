@@ -225,11 +225,20 @@ function build_stream_sidebar_li(sub) {
         invite_only: sub.invite_only,
         color: stream_data.get_color(name),
         pin_to_top: sub.pin_to_top,
+        isMute: stream_data.in_home_view(sub.stream_id),
+        stream: stream_data.get_sub_by_id(sub.stream_id)
     };
     args.dark_background = stream_color.get_color_class(args.color);
     var list_item = $(templates.render('stream_sidebar_row', args));
     return list_item;
 }
+// Mute/unmute
+$('body').on('click', '.toggle_home', function (e) {
+    var sub = stream_popover_sub(e);
+    exports.hide_stream_popover();
+    subs.toggle_home(sub);
+    e.stopPropagation();
+});
 
 function build_stream_sidebar_row(sub) {
     var self = {};
