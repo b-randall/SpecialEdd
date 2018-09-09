@@ -158,7 +158,6 @@ class Command(BaseCommand):
             # Create test Users (UserProfiles are automatically created,
             # as are subscriptions to the ability to receive personals).
             names = [
-				("Peter", "s3602584@student.rmit.edu.au"),
                 ("Zoe", "ZOE@zulip.com"),
                 ("Othello, the Moor of Venice", "othello@zulip.com"),
                 ("Iago", "iago@zulip.com"),
@@ -226,12 +225,8 @@ class Command(BaseCommand):
             create_if_missing_realm_internal_bots()
 
             # Create public streams.
-            stream_list = ["FAQ", "General Chat", "Assignment help", "Group finding", "Verona", "Denmark", "Scotland", "Venice", "Rome"]
+            stream_list = ["Verona", "Denmark", "Scotland", "Venice", "Rome"]
             stream_dict = {
-				"FAQ": {"description": "Frequently asked questions"}
-				"General Chat": {"description": "General Chatting space"}
-				"Assignment help": {"description": "Assignment help"}
-				"Group finding": {"description": "Group finding"}
                 "Verona": {"description": "A city in Italy"},
                 "Denmark": {"description": "A Scandinavian country"},
                 "Scotland": {"description": "Located in the United Kingdom"},

@@ -366,7 +366,7 @@ i18n_urls = [
     # desktop app build for everyone in that case
     url(r'^desktop_home/$', zerver.views.home.desktop_home,
         name='zerver.views.home.desktop_home'),
-	url(r'^special$', zerver.views.home.special, name='special'),
+
     url(r'^accounts/login/sso/$', zerver.views.auth.remote_user_sso, name='login-sso'),
     url(r'^accounts/login/jwt/$', zerver.views.auth.remote_user_jwt, name='login-jwt'),
     url(r'^accounts/login/social/(\w+)$', zerver.views.auth.start_social_login,
