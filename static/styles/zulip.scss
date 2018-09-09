@@ -2978,3 +2978,27 @@ div.message_content button.tictactoe-square:disabled {
 .flatpickr-months .numInputWrapper span {
     display: none;
 }
+
+// Styling for the user avatar and name in top right of navbar
+
+.user-info {
+	padding-top: 10px;
+	padding-left: 50px;
+	font-size: 20px;
+	color: black;
+	width: 100px;
+	height: 40px;
+	line-height: inherit;
+}
+
+.user-info-avatar{
+	padding: 5px;
+	width: 35px;
+    height: 35px;
+	float: left;
+}
+
+.youtube-video {
+    width: 460px;
+    height: 215px;
+}

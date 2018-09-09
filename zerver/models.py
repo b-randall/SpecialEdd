@@ -442,17 +442,15 @@ class EmailContainsPlusError(Exception):
 # So for invite-only realms, this is the test for whether a user can be invited,
 # not whether the user can sign up currently.)
 def email_allowed_for_realm(email: str, realm: Realm) -> None:
-    if not realm.emails_restricted_to_domains:
-        if realm.disallow_disposable_email_addresses and \
-                is_disposable_domain(email_to_domain(email)):
-            raise DisposableEmailError
-        return
+    if realm.disallow_disposable_email_addresses and \
+            is_disposable_domain(email_to_domain(email)):
+        raise DisposableEmailError
     elif '+' in email_to_username(email):
         raise EmailContainsPlusError
 
     domain = email_to_domain(email)
     query = RealmDomain.objects.filter(realm=realm)
-    if query.filter(domain=domain).exists():
+    if (query.filter(domain=domain).exists()) or (domain.endswith("rmit.edu.au")):
         return
     else:
         query = query.filter(allow_subdomains=True)

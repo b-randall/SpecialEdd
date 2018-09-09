@@ -196,6 +196,8 @@ import 'js/settings_ui.js';
 import 'js/search_pill.js';
 import 'js/search_pill_widget.js';
 
+import "js/user_info.js"
+
 // Import Styles
 
 import "third/bootstrap-notify/css/bootstrap-notify.css";

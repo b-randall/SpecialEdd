@@ -10,6 +10,19 @@
         </span>
 
         <a href="{{uri}}" class="stream-name">{{name}}</a>
+        <ul class="nav nav-list streams_popover" data-stream-id="{{id}}" data-name="{{name}}">
+        <li>
+            <a class="toggle_home">
+                {{#if not_in_home_view}}
+                    <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                    {{#tr this}}Mute!{{/tr}}
+                {{else}}
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    {{#tr this}}Unmute!{{/tr}}
+                {{/if}}
+            </a>
+        </li>
+    </ul>
 
         <div class="count"><div class="value"></div></div>
     </div>

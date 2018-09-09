@@ -62,6 +62,9 @@ def send_initial_pms(user: UserProfile) -> None:
 def setup_initial_streams(realm: Realm) -> None:
     stream_dicts = [
         {'name': "general"},
+        {'name': "FAQ"},
+        {'name': "Assignment Help"},
+        {'name': "Group Finding"},
         {'name': "new members",
          'description': "For welcoming and onboarding new members. If you haven't yet, "
          "introduce yourself in a new thread using your name as the topic!"},
@@ -88,6 +91,15 @@ def send_initial_realm_messages(realm: Realm) -> None:
         {'stream': "general",
          'topic': "welcome",
          'content': "Welcome to #**general**."},
+        {'stream': "FAQ",
+         'topic': "Frequently Asked Questions",
+         'content': "Welcome to #**FAQ**."},
+        {'stream': "Assignment Help",
+         'topic': "Assignment Help",
+         'content': "Welcome to #**Assignment Help**."},
+        {'stream': "Group Finding",
+         'topic': "Finding a Group",
+         'content': "Welcome to #**Group Finding**."},
         {'stream': "new members",
          'topic': "onboarding",
          'content': "A #**new members** stream is great for onboarding new members.\n\nIf you're "
