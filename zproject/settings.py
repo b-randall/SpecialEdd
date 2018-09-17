@@ -879,6 +879,12 @@ PIPELINE = {
             ),
             'output_filename': 'min/emojione_sprite.css',
         },
+        'games': {
+            'source_filenames': (
+                'static/styles/games.css',
+            ),
+            'output_filename': 'static/styles/games.css',
+        },
         'google_sprite': {
             'source_filenames': (
                 'generated/emoji/google_sprite.css',
@@ -892,8 +898,16 @@ PIPELINE = {
             'output_filename': 'min/twitter_sprite.css',
         },
     },
-    'JAVASCRIPT': {},
+    'JAVASCRIPT': {
+        'games':{
+        'source_filenames':(
+            'static/js/games.js',
+            ),
+            'output_filename': 'static/js/games.js',
+        }
+    }
 }
+
 
 # Useful reading on how this works is in
 # https://zulip.readthedocs.io/en/latest/subsystems/front-end-build-process.html
