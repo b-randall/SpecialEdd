@@ -3072,3 +3072,17 @@ div.message_content button.tictactoe-square:disabled {
     text-decoration: none;
     cursor: pointer;
 }
+
+canvas { background: #8FBC8F; display: block; margin: 0 auto; }
+
+.button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 100px 800px;
+    cursor: pointer;
+}
