@@ -38,8 +38,46 @@
 				<h4 class='sidebar-title' id='high-score-title'>{{_('HIGH SCORES') }}</h4>
 			</div>
 			<div>
-				<ul id="group-pms" class="filters scrolling_list">
-				</ul>
+        <table>
+  <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Score</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>{{ user_profile.full_name }}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>lago</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>King Hamlet</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Polonis</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Zoe</td>
+    <td></td>
+  </tr>
+
+  {% for name in HighScore %}
+  <tr>
+    <td>{{ HighScore.objects.game }}</td>
+    <td>{{ HighScore.objects.name }}</td>
+    <td>{{ HighScore.objects.score }}</td>
+  </tr>
+  {% endfor %}
+</table>
 			</div>
 		</div>
         <div id="sidebar-keyboard-shortcuts">
