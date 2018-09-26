@@ -34,7 +34,14 @@
                         {{/include_sender}}
                     </span>
                     <span class="alert-msg pull-right"></span>
-                    <span class="message_time{{#if msg.locally_echoed}} notvisible{{/if}}{{#if status_message}} status-time{{/if}}">{{timestr}}</span>
+                    <span class="message_time{{#if msg.locally_echoed}} notvisible{{/if}}{{#if status_message}} status-time{{/if}}">{{timestr}}                    </span>
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                    class="twitter-share-button"
+                    data-size=small
+                    data-text="Shared From Special Edd Project from | {{msg/sender_full_name}}: {{msg/content}} |"
+                    data-hashtags="RMIT-ZULIP"
+                    data-show-count="false">Tweet</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     {{#if_and last_edit_timestr include_sender}}
                         {{#unless status_message}}
                         <div class="message_edit_notice" title="{{#tr this}}Edited (__last_edit_timestr__){{/tr}}">{{t "EDITED" }}</div>
