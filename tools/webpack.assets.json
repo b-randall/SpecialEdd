@@ -32,7 +32,6 @@
         "./static/js/blueslip.js",
         "./static/third/bootstrap/js/bootstrap.js",
         "./static/js/common.js",
-        "./static/js/games.js",
         "./node_modules/moment/min/moment.min.js",
         "./node_modules/moment-timezone/builds/moment-timezone-with-data.min.js",
         "./node_modules/sortablejs/Sortable.js",
@@ -45,7 +44,6 @@
         "./static/generated/icons/style.css",
         "./node_modules/source-sans-pro/source-sans-pro.css",
         "./static/styles/pygments.scss"
-        "./static/styles/games.css"
     ],
     "help": [
             "./node_modules/simplebar/dist/simplebar.css",
