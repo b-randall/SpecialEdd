@@ -15,6 +15,278 @@
                     <span class="alert-draft pull-left">{{ _('Saved as draft') }}</span>
                 </span>
                 <span class="new_message_button">
+                    <button id="myBtn" class="drafts-link no-underline button small rounded compose_drafts_button">Games</button>
+                      <!-- The Modal -->
+                      <div id="myModal" class="modal-games">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <span class="close">&times;</span>
+                          <div class="modal-header">
+                            <h1>Game Menu</h1>
+                          </div>
+                          <div class="modal-para">
+                            <p>Some text in the Modal..</p>
+
+                          </div>
+                          <div class="modal-img">
+
+                            <canvas id="myCanvas" width="480" height="320"></canvas>
+
+                            <script>
+                            var canvas = document.getElementById("myCanvas");
+                            var ctx = canvas.getContext("2d");
+
+                            var x;
+                            var y;
+                            var dx;
+                            var dy;
+                            var ballRadius;
+
+                            var paddleHeight = 10;
+                            var paddleWidth = 75;
+                            var paddleX = (canvas.width-paddleWidth)/2;
+
+                            var menuHeight = 200;
+                            var menuWidth = 150;
+
+                            var rightPressed = false;
+                            var leftPressed = false;
+                            var menuOpen = false;
+
+                            var numOfBricks = 10;
+                            var brickWidth = 20;
+                            var brickHeight = 20;
+                            var bricks = [];
+                            var brickRowCount = 5;
+                            var brickColumnCount = 3;
+                            var brickPadding = 10;
+                            var brickOffsetTop = 30;
+                            var brickOffsetLeft = 30;
+
+                            var buttonWidth = 75;
+                            var buttonHeight = 30;
+                            var buttonPadding = 35;
+
+                            var gameOver = false;
+
+                            var score = 0;
+
+                                function initBricks(){
+                                    for(var c=0; c<numOfBricks; c++) {
+                                        bricks[c] = { x: generateRandomCoord(0, canvas.width), y: generateRandomCoord(0, canvas.height -100)};
+                                    }
+                                }
+
+                                function initBall(){
+                                    x = canvas.width/2;
+                                    y = canvas.height-30;
+                                    dx = 3;
+                                    dy = -3;
+                                    ballRadius = 10;
+                                }
+
+                                function drawBricks() {
+                                    for(var i = 0; i < numOfBricks; i++) {
+                                        ctx.beginPath();
+                                        ctx.rect(bricks[i].x, bricks[i].y, brickWidth, brickHeight);
+                                        ctx.fillStyle = "#0095DD";
+                                        ctx.fill();
+                                        ctx.closePath();
+                                    }
+                                }
+
+
+                                function drawBall() {
+                                    ctx.beginPath();
+                                    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+                                    ctx.fillStyle = "#F08080";
+                                    ctx.fill();
+                                    ctx.closePath();
+                                }
+
+                                function drawPaddle() {
+                                    ctx.beginPath();
+                                    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+                                    ctx.fillStyle = "#F08080";
+                                    ctx.fill();
+                                    ctx.closePath();
+                                }
+
+                                function drawScore() {
+                                    ctx.font = "16px Arial";
+                                    ctx.fillStyle = "#FFFFFF";
+                                    ctx.fillText("Score: "+score, 8, 20);
+                                }
+
+                                function drawMenu(){
+                                    buttonX = (canvas.width-menuWidth)/2 +buttonPadding;
+                                    buttonY = canvas.height/2 - menuHeight/2 +buttonPadding;
+                                    //draw menu background
+                                    ctx.beginPath();
+                                    ctx.rect( (canvas.width-menuWidth)/2, canvas.height/2 - menuHeight/2, menuWidth,menuHeight);
+                                    ctx.fillStyle = "#FFFFFF";
+                                    ctx.fill();
+                                    ctx.closePath();
+
+                                    //draw continue button
+                                    ctx.beginPath();
+                                    ctx.rect( buttonX, buttonY, buttonWidth,buttonHeight);
+                                    ctx.fillStyle = "black";
+                                    ctx.fill()
+                                    ctx.closePath();
+
+                                    ctx.fillText("Continue", buttonX, buttonY);
+                                    ctx.fillStyle = "#008080";
+
+                                }
+
+                                function drawGameover() {
+                                    ctx.fillText("Game over, press escape to try again", (canvas.width)/4, canvas.height/2);
+                                    ctx.fillStyle = "#000000";
+                                }
+
+                                function draw() {
+                                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                    drawBall();
+                                    drawPaddle();
+                                    drawBricks();
+                                    collisionDetection();
+                                    drawScore();
+
+                                    if (gameOver == false) {
+                                        if (menuOpen == false) {
+                                            x += dx;
+                                            y += dy;
+
+                                            if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+                                                dx = -dx;
+                                            }
+                                            if(y + dy < ballRadius) {
+                                                dy = -dy;
+                                            }
+                                            else if(y + dy > canvas.height-ballRadius) {
+                                                if(x > paddleX && x < paddleX + paddleWidth) {
+                                                    dy = -dy;
+                                                }
+                                                else {
+                                                    gameOver = true;
+                                               }
+                                            }
+
+                                            if(rightPressed && paddleX <= canvas.width- paddleWidth) {
+                                                paddleX += 7;
+                                            }
+                                            else if(leftPressed && paddleX >= 0) {
+                                            paddleX -= 7;
+                                            }
+                                        }
+                                        else if (menuOpen = true){
+                                            drawMenu();
+                                        }
+                                    }
+                                    else {
+                                        drawGameover();
+                                    }
+
+                                    requestAnimationFrame(draw);
+                                }
+
+                                document.addEventListener("keydown", keyDownHandler, false);
+                                document.addEventListener("keyup", keyUpHandler, false);
+
+
+                                function keyDownHandler(e) {
+                                    if(e.keyCode == 39) {
+                                        rightPressed = true;
+                                    }
+                                    else if(e.keyCode == 37) {
+                                        leftPressed = true;
+                                    }
+                                    else if(e.keyCode == 27) {
+                                        if (gameOver == false){
+                                            menuOpen = !menuOpen;
+                                        }
+                                        else if (gameOver == true)
+                                        {
+                                            gameOver = false;
+                                            initBricks();
+                                            paddleX = (canvas.width-paddleWidth)/2;
+                                            initBall();
+                                            score = 0;
+                                        }
+                                    }
+
+                                }
+
+                                function keyUpHandler(e) {
+                                    if(e.keyCode == 39) {
+                                        rightPressed = false;
+                                    }
+                                    else if(e.keyCode == 37) {
+                                        leftPressed = false;
+                                    }
+                                }
+
+                                function continueButton() {
+                                  document.getElementById("menuContinue").innerHTML = "continue";
+                                }
+
+                                function collisionDetection() {
+                                    for(var c=0; c < numOfBricks; c++) {
+                                            var b = bricks[c];
+                                                if(x > b.x && x < b.x+brickWidth + ballRadius && y > b.y && y < b.y+brickHeight + ballRadius) {
+                                                    dy = -dy;
+                                                    b.x = generateRandomCoord(0, canvas.width);
+                                                    b.y= generateRandomCoord(0, canvas.height -100);
+                                                    score++;
+                                            }
+                                        }
+                                }
+
+                                function generateRandomCoord(min, max) {
+                                    return (Math.random() * (max - min) + min) *1;
+                                }
+                            initBricks();
+                            initBall();
+                            draw();
+                             </script>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <script>
+                        // Get the modal
+                        var modal = document.getElementById('myModal');
+
+                        // Get the button that opens the modal
+                        var btn = document.getElementById("myBtn");
+
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
+
+                        // When the user clicks the button, open the modal
+                        btn.onclick = function() {
+                            modal.style.display = "block";
+                        }
+
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
+                            modal.style.display = "none";
+                        }
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                      </script>
+
+                    <span class="alert-draft pull-left">{{ _('Saved as draft') }}</span>
+                </span>
+
+                <span class="new_message_button">
                     <button type="button" class="button small rounded compose_stream_button"
                       id="left_bar_compose_stream_button_big"
                       title="{{ _('New topic') }} (c)">
