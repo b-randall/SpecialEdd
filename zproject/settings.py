@@ -892,8 +892,9 @@ PIPELINE = {
             'output_filename': 'min/twitter_sprite.css',
         },
     },
-    'JAVASCRIPT': {},
+    'JAVASCRIPT': {}
 }
+
 
 # Useful reading on how this works is in
 # https://zulip.readthedocs.io/en/latest/subsystems/front-end-build-process.html
