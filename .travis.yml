@@ -20,8 +20,6 @@ install:
 script:
 - unset GEM_PATH
 # - mispipe "./tools/travis/$TEST_SUITE" ts
-- gcloud compute scp
-- gcloud gcloud compute ssh
 cache:
   yarn: true
   apt: false
@@ -55,7 +53,7 @@ deploy:
   provider: gae
   skip_cleanup: true
   keyfile: client-secret.json
-  project: RMIT-SEPT/SpecialEdd
+  project: hallowed-nectar-216810
   default: true
   on:
     all_branches: true
