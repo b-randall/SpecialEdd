@@ -19,7 +19,7 @@ install:
 - mispipe "scripts/lib/clean-unused-caches --verbose --threshold 0" ts
 script:
 - unset GEM_PATH
-# - mispipe "./tools/travis/$TEST_SUITE" ts
+- mispipe "./tools/travis/$TEST_SUITE" ts
 cache:
   yarn: true
   apt: false
