@@ -20,6 +20,8 @@ install:
 script:
 - unset GEM_PATH
 # - mispipe "./tools/travis/$TEST_SUITE" ts
+- gcloud compute scp
+- gcloud gcloud compute ssh
 cache:
   yarn: true
   apt: false
