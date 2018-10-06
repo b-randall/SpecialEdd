@@ -10,7 +10,7 @@ before_install:
 - mkdir -p lib
 - gcloud auth activate-service-account --key-file client-secret.json
 - ssh-keygen -q -N ""  -f ~/.ssh/google_compute_engine
-- gcloud compute --project "hallowed-nectar-216810" ssh --zone "australia-southeast1-b" "instance-2" --command 'cd SpecialEdd && git pull'
+- gcloud compute --project "hallowed-nectar-216810" ssh --zone "australia-southeast1-b" "instance-2" --command 'cd /home/kasaski97/SpecialEdd && git pull'
 install:
 - sudo rm -vf /etc/apt/sources.list.d/*
 - sudo apt-get update
@@ -21,7 +21,7 @@ install:
 script:
 - unset GEM_PATH
 # - mispipe "./tools/travis/$TEST_SUITE" ts
-- gcloud compute --project "hallowed-nectar-216810" ssh --zone "australia-southeast1-b" "instance-2" --command 'cd SpecialEdd && git pull'
+- gcloud compute --project "hallowed-nectar-216810" ssh --zone "australia-southeast1-b" "instance-2" ---command 'cd /home/kasaski97/SpecialEdd && git pull'
 cache:
   yarn: true
   apt: false
