@@ -50,10 +50,4 @@ addons:
 after_success:
 - codecov
 deploy:
-  provider: gae
-  skip_cleanup: true
-  keyfile: client-secret.json
-  project: hallowed-nectar-216810
-  default: true
-  on:
-    all_branches: true
+- gcloud compute --project "hallowed-nectar-216810" ssh --zone "australia-southeast1-b" "instance-2" -- "cd SpecialEdd && git pull"
