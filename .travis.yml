@@ -20,7 +20,7 @@ install:
 script:
 - unset GEM_PATH
 # - mispipe "./tools/travis/$TEST_SUITE" ts
-- gcloud compute --project "hallowed-nectar-216810" ssh --zone "australia-southeast1-b" "instance-2" -- "cd SpecialEdd && git pull"
+- gcloud compute --project "hallowed-nectar-216810" ssh --zone "australia-southeast1-b" "instance-2" --command 'cd SpecialEdd && git pull'
 cache:
   yarn: true
   apt: false
