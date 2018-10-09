@@ -67,9 +67,10 @@
                             var buttonHeight = 30;
                             var buttonPadding = 35;
 
-                            var gameOver = false;
+                            var gameOver = true;
 
                             var score = 0;
+                            var count = 0;
 
                                 function initBricks(){
                                     for(var c=0; c<numOfBricks; c++) {
@@ -130,12 +131,12 @@
 
                                     //draw continue button
                                     ctx.beginPath();
-                                    ctx.rect( buttonX, buttonY, buttonWidth,buttonHeight);
+                                    ctx.rect( buttonX, buttonY, buttonWidth,-buttonHeight);
                                     ctx.fillStyle = "black";
                                     ctx.fill()
                                     ctx.closePath();
 
-                                    ctx.fillText("Continue", buttonX, buttonY);
+                                    ctx.fillText("Play", buttonX, buttonY);
                                     ctx.fillStyle = "#008080";
 
                                 }
@@ -169,7 +170,9 @@
                                                     dy = -dy;
                                                 }
                                                 else {
+                                                    count++
                                                     gameOver = true;
+                                                    endGame();
                                                }
                                             }
 
@@ -185,7 +188,11 @@
                                         }
                                     }
                                     else {
-                                        drawGameover();
+                                        if(count<1){
+                                            drawMenu();
+                                        }else{
+                                            drawGameover();
+                                        }
                                     }
 
                                     requestAnimationFrame(draw);
@@ -193,6 +200,14 @@
 
                                 document.addEventListener("keydown", keyDownHandler, false);
                                 document.addEventListener("keyup", keyUpHandler, false);
+
+                                function endGame(){
+                                    $.post('end-game',
+                                   {
+                                       score : score,
+                                       gameID : "brick"
+                                   },)
+                                }
 
 
                                 function keyDownHandler(e) {

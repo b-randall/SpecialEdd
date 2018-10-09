@@ -33,6 +33,7 @@ import zerver.views.user_settings
 import zerver.views.muting
 import zerver.views.streams
 import zerver.views.realm
+import zerver.views.highscore
 
 from zerver.lib.rest import rest_dispatch
 
@@ -515,6 +516,8 @@ i18n_urls = [
         template_name='zerver/config_error.html',),
         {'dev_not_supported_error': True},
         name='dev_not_supported'),
+    #highscore saving -> zerver.views.HighScore
+    url(r'^end-game/?', zerver.views.highscore.end_game, name='end-game'),
 ]
 
 # Make a copy of i18n_urls so that they appear without prefix for english
