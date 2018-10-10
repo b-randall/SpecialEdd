@@ -12,14 +12,14 @@
         <a href="{{uri}}" class="stream-name">{{name}}</a>
 
 
-        <ul class="nav nav-list streams_popover" data-stream-id="{{ id }}" data-name="{{ name }}">
+        <ul class="nav nav-list streams_popover" href="" data-stream-id="{{ id }}" data-name="{{ name }}">
         <li>
-            <a class="toggle_home">
+            <a class="toggle_home" href="">
                 {{#if isMute}}
-                    <i class="fa fa-volume-up" aria-hidden="true" href=""></i>
+                    <i class="fa fa-volume-up" aria-hidden="true"></i>
                     {{#tr this}}Mute{{/tr}}
                 {{else}}
-                    <i class="fa fa-volume-off" aria-hidden="true" href=""></i>
+                    <i class="fa fa-volume-off" aria-hidden="true"></i>
                     {{#tr this}}Unmute{{/tr}}
                 {{/if}}
             </a>
