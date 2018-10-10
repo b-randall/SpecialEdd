@@ -47,7 +47,7 @@
                             var paddleX = (canvas.width-paddleWidth)/2;
 
                             var menuHeight = 200;
-                            var menuWidth = 150;
+                            var menuWidth = 300;
 
                             var rightPressed = false;
                             var leftPressed = false;
@@ -67,9 +67,10 @@
                             var buttonHeight = 30;
                             var buttonPadding = 35;
 
-                            var gameOver = false;
+                            var gameOver = true;
 
                             var score = 0;
+                            var count = 0;
 
                                 function initBricks(){
                                     for(var c=0; c<numOfBricks; c++) {
@@ -80,8 +81,8 @@
                                 function initBall(){
                                     x = canvas.width/2;
                                     y = canvas.height-30;
-                                    dx = 3;
-                                    dy = -3;
+                                    dx = 2;
+                                    dy = -2;
                                     ballRadius = 10;
                                 }
 
@@ -119,24 +120,15 @@
                                 }
 
                                 function drawMenu(){
-                                    buttonX = (canvas.width-menuWidth)/2 +buttonPadding;
-                                    buttonY = canvas.height/2 - menuHeight/2 +buttonPadding;
-                                    //draw menu background
                                     ctx.beginPath();
                                     ctx.rect( (canvas.width-menuWidth)/2, canvas.height/2 - menuHeight/2, menuWidth,menuHeight);
-                                    ctx.fillStyle = "#FFFFFF";
+                                    ctx.fillStyle = "#191970";
                                     ctx.fill();
                                     ctx.closePath();
 
-                                    //draw continue button
-                                    ctx.beginPath();
-                                    ctx.rect( buttonX, buttonY, buttonWidth,buttonHeight);
-                                    ctx.fillStyle = "black";
-                                    ctx.fill()
-                                    ctx.closePath();
-
-                                    ctx.fillText("Continue", buttonX, buttonY);
-                                    ctx.fillStyle = "#008080";
+                                    ctx.fillStyle = "#FFFFFF";
+                                    ctx.fillText("Welcome to Bullet Ball,", (canvas.width-menuWidth)/8 + (menuWidth /2) -10, canvas.height/2);
+                                    ctx.fillText("Press Escape to Start!", (canvas.width-menuWidth)/8 + (menuWidth /2) -10, canvas.height/2+20);
 
                                 }
 
@@ -169,7 +161,9 @@
                                                     dy = -dy;
                                                 }
                                                 else {
+                                                    count++
                                                     gameOver = true;
+                                                    endGame();
                                                }
                                             }
 
@@ -181,11 +175,16 @@
                                             }
                                         }
                                         else if (menuOpen = true){
-                                            drawMenu();
+                                            ctx.fillText("Game paused, press escape to resume", (canvas.width)/4, canvas.height/2);
+                                            ctx.fillStyle = "#000000";
                                         }
                                     }
                                     else {
-                                        drawGameover();
+                                        if(count<1){
+                                            drawMenu();
+                                        }else{
+                                            drawGameover();
+                                        }
                                     }
 
                                     requestAnimationFrame(draw);
@@ -193,6 +192,14 @@
 
                                 document.addEventListener("keydown", keyDownHandler, false);
                                 document.addEventListener("keyup", keyUpHandler, false);
+
+                                function endGame(){
+                                    $.post('end-game',
+                                   {
+                                       score : score,
+                                       gameID : "brick"
+                                   },)
+                                }
 
 
                                 function keyDownHandler(e) {
@@ -235,7 +242,7 @@
                                     for(var c=0; c < numOfBricks; c++) {
                                             var b = bricks[c];
                                                 if(x > b.x && x < b.x+brickWidth + ballRadius && y > b.y && y < b.y+brickHeight + ballRadius) {
-                                                    dy = -dy;
+                                                    dy = -dy - 1;
                                                     b.x = generateRandomCoord(0, canvas.width);
                                                     b.y= generateRandomCoord(0, canvas.height -100);
                                                     score++;
