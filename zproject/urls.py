@@ -33,6 +33,7 @@ import zerver.views.user_settings
 import zerver.views.muting
 import zerver.views.streams
 import zerver.views.realm
+import zerver.views.highscore
 
 from zerver.lib.rest import rest_dispatch
 
@@ -366,7 +367,7 @@ i18n_urls = [
     # desktop app build for everyone in that case
     url(r'^desktop_home/$', zerver.views.home.desktop_home,
         name='zerver.views.home.desktop_home'),
-	url(r'^special$', zerver.views.home.special, name='special'),
+
     url(r'^accounts/login/sso/$', zerver.views.auth.remote_user_sso, name='login-sso'),
     url(r'^accounts/login/jwt/$', zerver.views.auth.remote_user_jwt, name='login-jwt'),
     url(r'^accounts/login/social/(\w+)$', zerver.views.auth.start_social_login,
@@ -515,6 +516,8 @@ i18n_urls = [
         template_name='zerver/config_error.html',),
         {'dev_not_supported_error': True},
         name='dev_not_supported'),
+    #highscore saving -> zerver.views.HighScore
+    url(r'^end-game/?', zerver.views.highscore.end_game, name='end-game'),
 ]
 
 # Make a copy of i18n_urls so that they appear without prefix for english
