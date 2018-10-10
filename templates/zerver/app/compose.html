@@ -20,7 +20,7 @@
                       <div id="myModal" class="modal-games">
                         <!-- Modal content -->
                         <div class="modal-content">
-                          <span class="close">&times;</span>
+                          <span id="game-close" class="close">&times;</span>
                           <div class="modal-header">
                             <h1>Game Menu</h1>
                           </div>
@@ -263,7 +263,7 @@
                         var btn = document.getElementById("myBtn");
 
                         // Get the <span> element that closes the modal
-                        var span = document.getElementsByClassName("close")[0];
+                        var span = document.getElementById("game-close");
 
                         // When the user clicks the button, open the modal
                         btn.onclick = function() {
