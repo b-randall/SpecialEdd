@@ -14,15 +14,15 @@
 
         <ul class="nav nav-list streams_popover" href="" data-stream-id="{{ id }}" data-name="{{ name }}">
         <li>
-            <a class="toggle_home">
+            <a class="toggle_home" href="">
               <!-- if the stream is unmuted, have it highlighted-->
                 {{#if not_in_home_view}}
                     <i class="fa fa-eye-slash" aria-hidden="true"></i>
-                    {{#tr this}}Mute!{{/tr}}
+                    {{#tr this}}Unmute!{{/tr}}
                 {{else}}
                 <!--else have them at 50% opacity until unmuted with this statement-->
                     <i class="fa fa-eye" aria-hidden="true"></i>
-                    {{#tr this}}Unmute!{{/tr}}
+                    {{#tr this}}Mute!{{/tr}}
                 {{/if}}
             </a>
         </li>
