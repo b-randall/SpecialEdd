@@ -2404,7 +2404,7 @@ class BotConfigData(models.Model):
     class Meta(object):
         unique_together = ("bot_profile", "key")
 
-class HighScore(models.Model):
-    game = models.CharField(max_length=250)
-    name = models.CharField(max_length=250)
-    score = models.CharField(max_length=250)
+class HighScore(models.Model):# Used to store Scores from the game	
+    game = models.CharField(max_length=250) # type: str 
+    name = models.CharField(max_length=250) # type: str 
+    score = models.CharField(max_length=250) #type: str
