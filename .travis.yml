@@ -76,5 +76,5 @@ addons:
 after_success:
     #after successful build deploy changes onto deployed server
   - gcloud compute --project "hallowed-nectar-216810" ssh --zone "australia-southeast1-b"
-      "instance-2" --command 'cd SpecialEdd && git pull'
+      "instance-2" --command 'cd SpecialEdd && git pull origin master'
   - codecov
