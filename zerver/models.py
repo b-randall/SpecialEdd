@@ -442,6 +442,8 @@ class EmailContainsPlusError(Exception):
 # So for invite-only realms, this is the test for whether a user can be invited,
 # not whether the user can sign up currently.)
 def email_allowed_for_realm(email: str, realm: Realm) -> None:
+    #Removed the exception that allowed non restricted emails to be added when
+    #the option was disapled, now all emails have to be RMIT emails.
     if realm.disallow_disposable_email_addresses and \
             is_disposable_domain(email_to_domain(email)):
         raise DisposableEmailError
@@ -450,6 +452,7 @@ def email_allowed_for_realm(email: str, realm: Realm) -> None:
 
     domain = email_to_domain(email)
     query = RealmDomain.objects.filter(realm=realm)
+    #if Email is dev email, or an RMIT email allow the user to register/be added
     if (query.filter(domain=domain).exists()) or (domain.endswith("rmit.edu.au")):
         return
     else:
@@ -2400,3 +2403,8 @@ class BotConfigData(models.Model):
 
     class Meta(object):
         unique_together = ("bot_profile", "key")
+
+class HighScore(models.Model):
+    game = models.CharField(max_length=250)
+    name = models.CharField(max_length=250)
+    score = models.CharField(max_length=250)
