@@ -14,23 +14,31 @@
                     </a>
                     <span class="alert-draft pull-left">{{ _('Saved as draft') }}</span>
                 </span>
+
+                <!-- the code block for the new games modal button and its modal script -->
+
                 <span class="new_message_button">
+                  <!-- used the same css as existing button to match zulip -->
                     <button id="myBtn" class="drafts-link no-underline button small rounded compose_drafts_button">Games</button>
                       <!-- The Modal -->
                       <div id="myModal" class="modal-games">
                         <!-- Modal content -->
                         <div class="modal-content">
+                          <!-- &times in unicode is an X icon -->
                           <span class="close">&times;</span>
                           <div class="modal-header">
                             <h1>Game Menu</h1>
                           </div>
+                          <!-- game description -->
                           <div class="modal-para">
-                            <p>Some text in the Modal..</p>
+                            <p>BULLET BRICK</p>
 
                           </div>
                           <div class="modal-img">
 
                             <canvas id="myCanvas" width="480" height="320"></canvas>
+
+                            <!-- game script -->
 
                             <script>
                             var canvas = document.getElementById("myCanvas");
@@ -254,6 +262,8 @@
                           </div>
                         </div>
                       </div>
+
+                      <!-- retrieving and closing the modal -->
 
                       <script>
                         // Get the modal
